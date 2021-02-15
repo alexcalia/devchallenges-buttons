@@ -4,11 +4,10 @@ import {ThemeProvider} from 'styled-components';
 import Theme from './themes/theme';
 
 const App = () => {
-  console.log(Theme.primary.bgcolors.main)
   return (
     <ThemeProvider theme={Theme}>
       <div className="App">
-        <Button variant="outline">Test</Button>
+        <Button color="secondary">Test</Button>
       </div>
     </ThemeProvider>
   );
