@@ -10,9 +10,18 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
   font-weight: 500;
-  font-family: Noto Sans JP;
+  font-family: 'Noto Sans JP';
   border-radius: 6px;
-  padding: 10px;
+  font-size: 14px;
+  border: none;
+  line-height: 20px;
+  text-align: center;
+  padding: ${props => props.size === 'lg' 
+    ? props.theme.size[props.size]
+    : props.size === 'sm'
+    ? props.theme.size[props.size]
+    : props.theme.size.md
+  };
   box-shadow: ${props => props.disableShadow || props.variant ? 'none' : `0px 2px 3px ${props.theme.colors[props.color].shadowColor}`};
   background: ${props => props.variant ? '#FFF' : props.theme.colors[props.color].bg.main};
 
@@ -21,7 +30,7 @@ const StyledButton = styled.button`
       ? props.theme.colors[props.color].bg.main 
       : props.variant 
       ? 'rgba(41, 98, 255, 0.1)' 
-      :props.theme.colors[props.color].bg.hover}
+      : props.theme.colors[props.color].bg.hover}
   };
 
   &:focus {
@@ -29,7 +38,7 @@ const StyledButton = styled.button`
       ? props.theme.colors[props.color].bg.main 
       : props.variant 
       ? 'rgba(41, 98, 255, 0.1)' 
-      :props.theme.colors[props.color].bg.hover}
+      : props.theme.colors[props.color].bg.hover}
   };
   
   color: ${props => props.disabled 
