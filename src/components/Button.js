@@ -31,32 +31,32 @@ const StyledButton = styled.button`
   background: ${props => props.variant 
     ? '#FFF' 
     : props.color 
-    ? props.theme.colors[props.color].main.regular
-    : props.theme.colors.default.main.regular
+    ? props.theme.colors[props.color].button.light
+    : props.theme.colors.default.button.light
   };
 
   &:hover {
     background-color: ${props => props.disabled 
-      ? props.theme.colors[props.color].main.regular 
+      ? props.theme.colors[props.color].button.light
       : props.variant 
       ? 'rgba(41, 98, 255, 0.1)' 
-      : props.theme.colors[props.color].main.hover}
+      : props.theme.colors[props.color].button.dark}
   };
 
   &:focus {
     background-color: ${props => props.disabled 
-      ? props.theme.colors[props.color].main.regular 
+      ? props.theme.colors[props.color].button.light 
       : props.variant 
       ? 'rgba(41, 98, 255, 0.1)' 
-      : props.theme.colors[props.color].main.hover}
+      : props.theme.colors[props.color].button.dark}
   };
   
   color: ${props => props.disabled 
     ? '#9E9E9E' 
     : props.variant && props.color
-    ? props.theme.colors[props.color].main.regular
+    ? props.theme.colors[props.color].button.light
     : props.variant
-    ? props.theme.colors.default.main.regular
+    ? props.theme.colors.default.button.dark
     : props.theme.colors[props.color].text
   };
 `
