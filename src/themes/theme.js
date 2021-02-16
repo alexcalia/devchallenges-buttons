@@ -34,7 +34,7 @@
         variant: 'rgba(211, 47, 47, 0.1)'
       },
       text: '#FFF',
-      shadow: 'rgba(211, 47, 47, 0.2'
+      shadow: 'rgba(211, 47, 47, 0.2)'
     }
   },
 

@@ -15,7 +15,12 @@ const StyledButton = styled.button`
   font-size: 14px;
   line-height: 20px;
   text-align: center;
-  border: none;
+  border: ${props => props.variant === "outline" && props.color
+    ? `1px solid ${props.theme.colors[props.color].button.dark}`
+    : props.variant === "outline"
+    ? `1px solid ${props.theme.colors.default.button.dark}`
+    : 'none'
+  };
   padding: ${props => props.size === 'lg' 
     ? props.theme.size[props.size]
     : props.size === 'sm'
@@ -36,28 +41,36 @@ const StyledButton = styled.button`
   };
 
   &:hover {
-    background-color: ${props => props.disabled 
-      ? props.theme.colors[props.color].button.light
-      : props.variant 
-      ? 'rgba(41, 98, 255, 0.1)' 
-      : props.theme.colors[props.color].button.dark}
+    background-color: ${props => props.variant && props.color
+      ? props.theme.colors[props.color].button.variant
+      : props.variant
+      ? props.theme.colors.default.button.light
+      : props.color
+      ? props.theme.colors[props.color].button.dark
+      : props.theme.colors.default.button.dark
+    }
   };
 
   &:focus {
-    background-color: ${props => props.disabled 
-      ? props.theme.colors[props.color].button.light 
-      : props.variant 
-      ? 'rgba(41, 98, 255, 0.1)' 
-      : props.theme.colors[props.color].button.dark}
+    background-color: ${props => props.variant && props.color
+      ? props.theme.colors[props.color].button.variant
+      : props.variant
+      ? props.theme.colors.default.button.light
+      : props.color
+      ? props.theme.colors[props.color].button.dark
+      : props.theme.colors.default.button.dark
+    }
   };
   
   color: ${props => props.disabled 
     ? '#9E9E9E' 
     : props.variant && props.color
-    ? props.theme.colors[props.color].button.light
+    ? props.theme.colors[props.color].button.dark
     : props.variant
     ? props.theme.colors.default.button.dark
-    : props.theme.colors[props.color].text
+    : props.color
+    ? props.theme.colors[props.color].text
+    : props.theme.colors.default.text
   };
 `
 
