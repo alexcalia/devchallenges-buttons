@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 // color "primary", "secondary", "danger"- WORKS!!!
-// variant "outline", "text"
+// variant "outline", "text"- WORKS!!!
 // size- WORKS!!!
-// startIcon + endIcon
+// startIcon + endIcon- WORKS!!!
 // disabled- WORKS!!
 // disableShadow- WORKS!!
 
@@ -81,13 +81,13 @@ const Button = ({children, size, disableShadow, variant, color, startIcon, endIc
     <StyledButton 
       size={size} 
       color={color} 
-      startIcon={startIcon} 
-      endIcon={endIcon} 
       variant={variant} 
       disableShadow={disableShadow} 
       disabled={disabled}
     >
+      {startIcon && <span className="material-icons">{startIcon}</span>}
       {children}
+      {endIcon && <span className="material-icons">{endIcon}</span>}
     </StyledButton>
   )
 }
