@@ -7,7 +7,7 @@ const App = () => {
   return (
     <ThemeProvider theme={Theme}>
       <div className="App">
-        <Button color="primary" startIcon="shopping_cart">Button</Button>
+        <Button color="primary" endIcon="shopping_cart">Button</Button>
       </div>
     </ThemeProvider>
   );

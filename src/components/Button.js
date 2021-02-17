@@ -1,13 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// color "primary", "secondary", "danger"- WORKS!!!
-// variant "outline", "text"- WORKS!!!
-// size- WORKS!!!
-// startIcon + endIcon- WORKS!!!
-// disabled- WORKS!!
-// disableShadow- WORKS!!
-
 const StyledButton = styled.button`
   font-weight: 500;
   font-family: 'Noto Sans JP';
@@ -72,8 +65,15 @@ const StyledButton = styled.button`
     ? props.theme.colors[props.color].text
     : props.theme.colors.default.text
   };
-`
 
+  & > span {
+    font-size: 14px;
+    ${props => props.startIcon
+      ? 'margin-right: 6px'
+      : 'margin-left: 6px'
+    };
+  }
+`
 
 const Button = ({children, size, disableShadow, variant, color, startIcon, endIcon, disabled}) => {
   
@@ -84,6 +84,8 @@ const Button = ({children, size, disableShadow, variant, color, startIcon, endIc
       variant={variant} 
       disableShadow={disableShadow} 
       disabled={disabled}
+      startIcon={startIcon}
+      endIcon={endIcon}
     >
       {startIcon && <span className="material-icons">{startIcon}</span>}
       {children}
